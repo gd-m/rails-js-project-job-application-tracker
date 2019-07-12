@@ -31,6 +31,14 @@ class JobApplicationsController < ApplicationController
 		end
 	end
 
+	def show
+		@job_application = JobApplication.find(params[:id])
+		respond_to do |f|
+			f.html
+			f.json {render json: @job_application}
+		end
+	end
+
 	private
 	def job_application_params
 		params.require(:job_application).permit(:date, :company_name, :job_title)	
