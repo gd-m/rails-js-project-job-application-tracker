@@ -14,6 +14,14 @@ class JobApplicationsController < ApplicationController
 		end
 	end
 
+	def new
+		if user_signed_in?
+			@job_application = JobApplication.new
+		else 
+			redirect_to root_path
+		end
+	end
+
 	private
 	def job_application_params
 		params.require(:job_application).permit(:date, :company_name, :job_title)	
