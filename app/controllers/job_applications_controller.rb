@@ -22,6 +22,15 @@ class JobApplicationsController < ApplicationController
 		end
 	end
 
+	def create
+		@job_application = current_user.job_applications.build(job_application_params)
+		if @job_application.save
+			redirect_to job_application_path(@job_application)
+		else
+			render :new
+		end
+	end
+
 	private
 	def job_application_params
 		params.require(:job_application).permit(:date, :company_name, :job_title)	
