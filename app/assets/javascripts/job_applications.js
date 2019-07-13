@@ -23,7 +23,17 @@ function getApplications() {
  		$('#all-applications').append(jobHtml)
  	})
  })
+ $(document).on('click', ".application-details", function(e) {
+		e.preventDefault()
+
+		let id = $(this).attr('data-id');
+		fetch(`/job_applications/${id}.json`)
+		.then(res => res.json())
+		
+	})
 }
+
+
 
 class JobApplication {
 	constructor(obj) {
@@ -36,7 +46,7 @@ class JobApplication {
 
 JobApplication.prototype.applicationHTML = function() {
 	return(`
-		<a href="/job_applications/${this.id}" data-id="${this.id} class="list-group-item list-group-item-action flex-column align-items-start active">
+		<a href="/job_applications/${this.id}" data-id="${this.id} class="list-group-item list-group-item-action flex-column align-items-start active application-details">
 				    <div class="d-flex w-100 justify-content-between">
 				      <h5 class="mb-1">${this.company_name}</h5>
 				      <small>${this.date}</small>
