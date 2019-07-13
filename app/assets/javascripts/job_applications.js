@@ -29,7 +29,13 @@ function getApplications() {
 		let id = $(this).attr('data-id');
 		fetch(`/job_applications/${id}.json`)
 		.then(res => res.json())
-		
+		.then(job => {
+			let newJob = new JobApplication(job);
+			let jobHtml = newJob.applicationShowHtml();
+			$('#show-details').html('')
+			$('#show-details').append(jobHtml);
+
+		})
 	})
 }
 
