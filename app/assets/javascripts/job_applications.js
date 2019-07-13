@@ -61,3 +61,12 @@ JobApplication.prototype.applicationHTML = function() {
 				  </a>
 		`)
 }
+
+JobApplication.prototype.applicationShowHtml = function () {
+	return(`
+		<h4>${this.company_name}</h4>
+		<p>${this.date}</p>
+		<h5>${this.job_title}</h5>
+		
+		`)
+}
