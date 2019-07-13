@@ -24,7 +24,6 @@ function getApplications() {
  	})
  })
  $(document).on('click', ".application-details", function() {
-		debugger
 		event.preventDefault();
 
 		let id = $(this).attr('data-id');
@@ -53,7 +52,7 @@ class JobApplication {
 
 JobApplication.prototype.applicationHTML = function() {
 	return(`
-		<a href="/job_applications/${this.id}" data-id="${this.id}" class=" application-details list-group-item list-group-item-action flex-column align-items-start active">
+		<a href="/job_applications/${this.id}" data-id="${this.id}" class=" application-details list-group-item list-group-item-action flex-column align-items-start">
 				    <div class="d-flex w-100 justify-content-between">
 				      <h5 class="mb-1">${this.company_name}</h5>
 				      <small>${this.date}</small>
