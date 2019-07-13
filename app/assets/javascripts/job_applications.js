@@ -4,6 +4,7 @@ $(function() {
 })
 
 function allJobApplicationClick() {
+	console.log('hitting allJobApplicationClick')
 	$('#job-application-data').on('click', function(){
 		event.preventDefault();
 		getApplications();
@@ -11,7 +12,7 @@ function allJobApplicationClick() {
 }
 
 function getApplications() {
-
+ console.log('hitting getApplication function!')
 }
 
 class JobApplication {
