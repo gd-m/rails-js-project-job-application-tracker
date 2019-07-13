@@ -1,1 +1,15 @@
-new
+<h2>New Job Application: </h2>
+	
+		<%= form_for @job_application do |b| -%>
+			<li><%= b.label :company_name %>
+			<%= b.text_field :company_name %>
+			</li>
+			<li><%= b.label :job_title %>
+			<%= b.text_field :job_title %>
+			</li>
+			<li><%= b.label :date %><%= select_datetime Date.today, :prefix => :date %></li>
+			<%= b.submit 'New Job Application' , :class => "btn btn-success" %>	
+		<% end %>
+		
+
+	
