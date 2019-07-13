@@ -13,6 +13,16 @@ function allJobApplicationClick() {
 
 function getApplications() {
  console.log('hitting getApplication function!')
+ fetch (`/job_applications.json`)
+ .then((res) => res.json())
+ .then(jobs => {
+ 	$('#all-applications').html('')
+ 	jobs.forEach(function(job) {
+ 		let newJob = new JobApplication(job)
+ 		let jobHtml = newJob.applicationHTML();
+ 		$('#all-applications').append(jobHtml)
+ 	})
+ })
 }
 
 class JobApplication {
