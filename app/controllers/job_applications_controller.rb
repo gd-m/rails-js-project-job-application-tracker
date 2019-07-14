@@ -25,7 +25,8 @@ class JobApplicationsController < ApplicationController
 	def create
 		@job_application = current_user.job_applications.build(job_application_params)
 		if @job_application.save
-			redirect_to job_application_path(@job_application)
+		#	redirect_to job_application_path(@job_application)
+		render json: @job_application
 		else
 			render :new
 		end

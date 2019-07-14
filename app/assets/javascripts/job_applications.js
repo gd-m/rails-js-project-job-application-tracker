@@ -9,6 +9,21 @@ function allJobApplicationClick() {
 		event.preventDefault();
 		getApplications();
 	})
+
+	$('#new_job_application').on('submit', function(e){
+		e.preventDefault();
+		console.log('submitted')
+		const value = $(this).serialize();
+
+		$.post("/job_applications", value).done(function(data){
+			console.log(data);
+			$('#container-2').html('')
+			const newJob = new JobApplication(data)
+			const jobHtml = newJob.applicationHTML();
+			$('#container-2').html(jobHtml)
+
+		})
+	})
 }
 
 function getApplications() {
